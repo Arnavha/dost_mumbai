@@ -1,0 +1,463 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #4F46E5; /* Indigo */
+    --primary-light: #818CF8;
+    --secondary: #10B981; /* Emerald */
+    --accent: #F43F5E; /* Rose */
+    
+    --bg-main: #F8FAFC;
+    --bg-card: rgba(255, 255, 255, 0.12);
+    
+    --text-dark: #0F172A;
+    --text-muted: #64748B;
+    
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    
+    --shadow-soft: 0 10px 40px -10px rgba(30, 41, 59, 0.08);
+    --shadow-hover: 0 20px 40px -10px rgba(79, 70, 229, 0.15);
+    
+    --radius-lg: 24px;
+    --radius-pill: 100px;
+}
+
+/* Base Body */
+body {
+    background-color: #050505 !important;
+    background-image: none !important;
+    font-family: var(--font-body) !important;
+    color: #e2e8f0 !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Modern Typography */
+h1, h2, h3, h4, h5, h6, 
+.heading, .section-head h1, .section-header h2 {
+    font-family: var(--font-heading) !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.6) !important;
+}
+
+p, span, a, div, li {
+    font-family: var(--font-body);
+}
+
+/* Ensure text outside cards is light */
+section > p, .section-head p, .about .row .content p, .clients .section-header p, .team p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6) !important;
+}
+
+/* Make text inside glass cards light */
+.card *, .item *, .testimonial-item *, .accordion-header *, .product1 *, .accordion-body * {
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5) !important;
+}
+.card p, .item p, .testimonial-item p, .product1 p, .accordion-body p {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+.accordion-header h3, .accordion-body p, .accordion-body * {
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5) !important;
+}
+
+.accordion-body {
+    background: transparent !important;
+}
+
+/* Remove old boxy borders from headings */
+.heading::before, .heading::after, 
+.section-head h1::before, .section-head h1::after,
+.clients .section-header h2::before, .clients .section-header h2::after,
+.testimonials .section-header h2::before, .testimonials .section-header h2::after {
+    display: none !important; 
+}
+
+/* Add sleek dynamic underline to headings */
+.heading::after, .section-head h1::after, .section-header h2::after {
+    content: '' !important;
+    display: block !important;
+    width: 60px !important;
+    height: 6px !important;
+    background: linear-gradient(90deg, var(--primary), var(--secondary)) !important;
+    border-radius: var(--radius-pill) !important;
+    margin: 15px auto 0 !important;
+    position: static !important;
+    transition: width 0.4s ease !important;
+}
+
+.heading:hover::after, .section-head:hover h1::after, .section-header:hover h2::after {
+    width: 90px !important;
+    background: linear-gradient(90deg, var(--primary), var(--secondary)) !important;
+}
+
+/* Floating Frosted Glass Header */
+.header, header.header {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03)) !important;
+    backdrop-filter: blur(30px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-top: 1.5px solid rgba(255, 255, 255, 0.5) !important; /* Top light highlight */
+    border-left: 1px solid rgba(255, 255, 255, 0.4) !important;
+    margin: 15px auto !important;
+    width: 98% !important;
+    max-width: 1600px !important;
+    border-radius: var(--radius-pill) !important;
+    padding: 10px 25px !important;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4), /* Prismatic top edge */
+        inset 0 -1px 1px rgba(255, 255, 255, 0.1) !important; /* Bottom edge depth */
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed !important;
+    transition: all 0.3s ease;
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.header .logo, .header .logo svg {
+    font-family: var(--font-heading) !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    font-size: 28px !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header .navbar ul {
+    margin-bottom: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.header .navbar ul li {
+    margin: 0 !important;
+}
+
+.header .navbar ul li a {
+    color: #ffffff !important;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3) !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    transition: all 0.3s ease !important;
+    padding: 8px 12px !important;
+    border-radius: var(--radius-pill) !important;
+    white-space: nowrap !important;
+}
+
+.header .navbar ul li a:hover {
+    color: #ffffff !important;
+    opacity: 0.8;
+    background: rgba(79, 70, 229, 0.1) !important;
+    text-decoration: none !important;
+}
+
+/* Super Premium Buttons */
+button, .btn, .bt12 {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: var(--radius-pill) !important;
+    padding: 12px 32px !important;
+    font-family: var(--font-body) !important;
+    font-weight: 700 !important;
+    box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.4) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer;
+    text-transform: none !important;
+    font-size: 16px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+button:hover, .btn:hover, .bt12:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 15px 25px -5px rgba(79, 70, 229, 0.5) !important;
+    color: white !important;
+}
+
+.bt12 { padding: 0 !important; }
+.header .navbar ul li a.bt12 {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 12px 28px !important;
+    border-radius: var(--radius-pill) !important;
+    font-weight: 800 !important;
+    box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.4) !important;
+    transition: all 0.3s ease !important;
+}
+.header .navbar ul li a.bt12:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 15px 25px -5px rgba(79, 70, 229, 0.5) !important;
+    color: white !important;
+}
+
+/* Glassmorphism Cards */
+.card, .item, .testimonial-item, .accordion-header, .product1 {
+    background: var(--bg-card) !important;
+    backdrop-filter: blur(16px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    transition: all 0.4s ease !important;
+    outline: none !important; /* override ugly inline outline */
+}
+
+.card:hover, .item:hover, .testimonial-item:hover, .accordion-header:hover, .product1:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Key Activity Special Cyan Glow Hover */
+.item:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 242, 254, 0.5) !important;
+    border-color: rgba(0, 242, 254, 0.6) !important;
+}
+
+/* Home Section */
+.home {
+    min-height: 100vh !important;
+    background: transparent !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home .main-logo {
+    opacity: 1 !important;
+}
+
+.home h1 {
+    font-size: 84px !important;
+    background: linear-gradient(to right, #4facfe 0%, #00f2fe 50%, #f093fb 100%) !important;
+    background-size: 200% auto !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: #fff !important;
+    margin-top: 20px !important;
+    animation: shineText 3s linear infinite !important;
+    text-shadow: 0 10px 30px rgba(0, 242, 254, 0.4) !important;
+}
+
+@keyframes shineText {
+    to { background-position: 200% center; }
+}
+
+/* Video Background Override */
+.bg-video {
+    opacity: 1 !important; 
+    filter: brightness(0.4) !important; /* Light black filter */
+    mix-blend-mode: normal !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: cover !important;
+    z-index: -1 !important;
+}
+
+/* Vibrant Counters */
+.counters {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+    border-radius: 40px !important;
+    margin: 40px auto !important;
+    max-width: 1200px !important;
+    box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.3) !important;
+    color: white !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.counters::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+    animation: pulseBg 15s linear infinite;
+}
+
+@keyframes pulseBg {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+.counters .counter {
+    font-family: var(--font-heading) !important;
+    font-weight: 800 !important;
+    font-size: 60px !important;
+    -webkit-text-stroke: 0px !important;
+    color: white !important;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.counters h3 {
+    color: rgba(255,255,255,0.9) !important;
+    font-family: var(--font-body) !important;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Clean up transparent sections */
+.team, .pt-5, .testimonials, .about, .testimonial-text {
+    background: transparent !important;
+}
+
+/* Modern Team Cards */
+.team .row .card {
+    background: var(--bg-card) !important;
+    border-radius: 30px !important;
+    padding-bottom: 20px !important;
+}
+
+.team .row .card::before, .team .row .card::after {
+    display: none !important; /* Remove old weird circles behind */
+}
+
+.team .row .card .image {
+    padding-top: 30px !important;
+}
+
+.team .row .card .image img {
+    border: 4px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
+    transition: transform 0.4s ease;
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: cover !important;
+}
+
+.team .row .card:hover .image img {
+    transform: scale(1.08) rotate(2deg);
+}
+
+.team .row .card .info span {
+    color: var(--secondary) !important;
+    font-weight: 700 !important;
+    font-family: var(--font-body) !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    display: block !important;
+    margin-top: 5px !important;
+}
+
+/* Social Icons Brand Colors */
+.team .row .card .info .icons a.fa-facebook-f { color: #1877F2 !important; text-shadow: none !important; }
+.team .row .card .info .icons a.fa-twitter { color: #1DA1F2 !important; text-shadow: none !important; }
+.team .row .card .info .icons a.fa-instagram { color: #E1306C !important; text-shadow: none !important; }
+.team .row .card .info .icons a.fa-linkedin { color: #0A66C2 !important; text-shadow: none !important; }
+
+.team .row .card .info .icons a {
+    display: inline-block;
+    transition: transform 0.3s ease, filter 0.3s ease !important;
+}
+
+.team .row .card .info .icons a:hover {
+    transform: scale(1.2) translateY(-2px);
+    filter: brightness(1.2);
+}
+
+/* Accordion modern styling */
+.accordion {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 30px !important;
+    margin-bottom: 15px !important;
+    cursor: pointer;
+}
+
+.accordion-header span {
+    color: var(--secondary) !important;
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    margin-right: 15px !important;
+}
+
+.accordion-body {
+    background: transparent !important;
+    padding: 0 30px 20px !important;
+}
+
+/* Advanced Bulge Glass Box */
+.bulge-glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)) !important;
+    backdrop-filter: blur(40px) saturate(180%) contrast(1.1) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(180%) contrast(1.1) !important;
+    border-radius: 50px !important;
+    padding: 4rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-top: 2px solid rgba(255, 255, 255, 0.4) !important;
+    border-left: 2px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.25),
+        inset 0 0 30px rgba(255, 255, 255, 0.1),
+        inset 10px 10px 25px rgba(255, 255, 255, 0.15), /* Bulge highlight */
+        inset -10px -10px 25px rgba(0, 0, 0, 0.1) !important; /* Bulge shadow */
+    margin: 2rem 0 !important;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.bulge-glass:hover {
+    transform: scale(1.01) translateY(-5px) !important;
+    box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 0.6),
+        inset 0 0 40px rgba(255, 255, 255, 0.2) !important;
+}
+
+.bulge-glass::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50px;
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.15), transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Global Section Clean-up */
+section, .about, .faq, .team, .clients, .testimonials, div[class*="pt-"], div[class*="pb-"] {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Re-apply shadow specifically to bulge-glass which might be inside these containers */
+.bulge-glass {
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.25),
+        inset 0 0 30px rgba(255, 255, 255, 0.1),
+        inset 10px 10px 25px rgba(255, 255, 255, 0.15),
+        inset -10px -10px 25px rgba(0, 0, 0, 0.1) !important;
+}
